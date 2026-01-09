@@ -34,20 +34,18 @@ function update(key: ConfigKey, val: string | number | boolean){
 </script>
 
 <template>
-  <div class="flex flex-col lg:flex-row gap-6 max-w-screen-2xl mx-auto">
-    <!-- Control Panel -->
-    <aside class="lg:w-80 xl:w-96 flex-shrink-0">
-      <TheControl
-        :config="config"
-        @update="update"
-      />
-    </aside>
-
-    <!-- Main Content -->
-    <div class="flex-1 min-w-0">
-      <TheMain 
-        :config="config"
-      />
+  <div class="max-w-6xl mx-auto">
+    <!-- Mobile: Stack vertically | Desktop: Side by side -->
+    <div class="flex flex-col lg:flex-row lg:items-start gap-4">
+      <!-- Sidebar -->
+      <div class="w-full lg:w-72 lg:flex-shrink-0">
+        <TheControl :config="config" @update="update" />
+      </div>
+      
+      <!-- Main Area -->
+      <div class="flex-1">
+        <TheMain :config="config" />
+      </div>
     </div>
   </div>
 </template>

@@ -6,13 +6,12 @@ const { config } = defineProps<{
   config: Config
 }>()
 
-
 watch(config, configChange)
 
 function configChange() {
   loadInit = false
   if(img)
-    preview.value.src = generateCanvas(config, img, loadInit ).src
+    preview.value.src = generateCanvas(config, img, loadInit).src
   if(pdfUrl.value)
     loadPdf(pdfUrl.value, config, wrap, loading, loadInit)
 }
@@ -20,6 +19,7 @@ function configChange() {
 let loadInit = false
 let type = ''
 let name = ''
+
 function load(e: Event) {
   loadInit = true
   reLoad()
@@ -48,6 +48,7 @@ let img: HTMLImageElement | null
 const canvas = ref()
 const preview = ref()
 const url = ref('')
+
 function resolveImage(file: Blob){
   const reader = new FileReader()
   reader.readAsDataURL(file)
@@ -69,12 +70,13 @@ function resolveImage(file: Blob){
 const pdfUrl = ref('')
 const loading = ref(false)
 const wrap = ref() as Ref<HTMLElement>
+
 function resolvePDF(file: Blob){
   const reader = new FileReader()
   reader.readAsDataURL(file)
   reader.onloadend = () => {
     pdfUrl.value = reader.result as string
-    loadPdf(pdfUrl.value, config , wrap, loading, loadInit)
+    loadPdf(pdfUrl.value, config, wrap, loading, loadInit)
   }
 }
 
@@ -92,79 +94,62 @@ function download() {
 </script>
 
 <template>
-  <div class="h-full">
-    <!-- Action Buttons -->
-    <div class="flex items-center gap-3 mb-6">
-      <div class="relative">
-        <input 
-          id="load" 
-          type="file" 
-          accept="image/*, application/pdf" 
-          class="absolute inset-0 w-full opacity-0 cursor-pointer z-10"
-          @change="load"
-        >
-        <button class="btn-primary">
-          <span class="inline-flex items-center gap-2">
-            <span i-carbon-upload text-lg />
-            Load File
-          </span>
-        </button>
-      </div>
+  <div>
+    <!-- Buttons -->
+    <div class="flex gap-2 mb-4">
+      <label class="inline-flex items-center gap-1.5 px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium rounded-lg cursor-pointer transition-colors">
+        <span i-carbon-upload class="text-base"></span>
+        <span>Load</span>
+        <input type="file" accept="image/*, application/pdf" class="hidden" @change="load">
+      </label>
       
       <button
-        class="btn-ghost"
+        class="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         :disabled="url === '' && pdfUrl === ''"
-        :class="{ 'opacity-50 cursor-not-allowed': url === '' && pdfUrl === '' }"
         @click="download"
       >
-        <span class="inline-flex items-center gap-2">
-          <span i-carbon-download text-lg />
-          Download
-        </span>
+        <span i-carbon-download class="text-base"></span>
+        <span>Download</span>
       </button>
     </div>
 
     <!-- Preview Area -->
-    <div class="glass-card min-h-[500px] flex items-center justify-center">
+    <div class="bg-slate-800/50 backdrop-blur border border-slate-700/50 rounded-xl p-4 min-h-[200px] sm:min-h-[300px] lg:min-h-[400px]">
       <!-- Image Preview -->
-      <div v-if="url" class="p-4">
+      <div v-if="url" class="flex items-center justify-center">
         <img 
           ref="preview" 
           :src="url" 
-          :style="`width: ${config.width}px; height: ${config.height}px; max-width: 100%;`"
-          class="rounded-lg shadow-2xl"
+          class="max-w-full h-auto rounded-lg shadow-xl"
+          style="max-height: 70vh;"
         >
         <canvas ref="canvas" class="hidden"></canvas>
       </div>
       
       <!-- PDF Preview -->
-      <div v-else-if="pdfUrl" class="p-4 w-full">
-        <div ref="wrap" class="flex flex-wrap gap-4 justify-center [&>canvas]:rounded-lg [&>canvas]:shadow-xl"></div>
+      <div v-else-if="pdfUrl" class="overflow-auto">
+        <div ref="wrap" class="flex flex-wrap gap-3 justify-center [&>canvas]:rounded-lg [&>canvas]:shadow-xl [&>canvas]:max-w-full [&>canvas]:h-auto"></div>
       </div>
       
-      <!-- Empty State / Upload Zone -->
+      <!-- Upload Zone -->
       <label 
         v-else 
-        for="load" 
-        class="upload-zone w-full h-full min-h-[400px] flex flex-col items-center justify-center cursor-pointer group"
+        class="flex flex-col items-center justify-center py-12 cursor-pointer group"
       >
-        <div class="p-6 rounded-2xl bg-gradient-to-br from-violet-500/10 to-cyan-500/10 border border-white/10 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:border-violet-500/30">
-          <span i-carbon-document-add text-5xl text-violet-400 />
+        <div class="p-4 rounded-full bg-slate-700/50 mb-3 group-hover:bg-violet-600/20 transition-colors">
+          <span i-carbon-document-add class="text-3xl text-violet-400"></span>
         </div>
-        <p class="text-gray-400 text-lg font-medium mb-2">Drop your file here</p>
-        <p class="text-gray-500 text-sm">or click to browse</p>
-        <p class="text-gray-600 text-xs mt-4">Supports images and PDF files</p>
+        <p class="text-sm text-gray-300 font-medium">Drop your file here</p>
+        <p class="text-xs text-gray-500 mt-1">or click to browse</p>
+        <input type="file" accept="image/*, application/pdf" class="hidden" @change="load">
       </label>
     </div>
     
     <!-- Loading Overlay -->
-    <div 
-      v-show="loading" 
-      class="fixed inset-0 z-50 flex items-center justify-center loading-overlay"
-    >
-      <div class="flex flex-col items-center gap-4">
-        <div class="loading-spinner"></div>
-        <p class="text-gray-300 text-sm">Processing your file...</p>
+    <div v-if="loading" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm">
+      <div class="text-center">
+        <div class="w-10 h-10 border-3 border-violet-500 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+        <p class="text-sm text-gray-300">Processing...</p>
       </div>
     </div>
   </div>

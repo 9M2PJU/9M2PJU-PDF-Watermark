@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎨 Watermark
+# 🎨 9M2PJU Watermark PDF
 
 **Add beautiful watermarks to your images and PDFs — right in your browser**
 
@@ -9,7 +9,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-4.x-646cff.svg)](https://vitejs.dev/)
 
-[Live Demo](https://efrice.github.io/watermark/) • [Report Bug](https://github.com/Efrice/watermark/issues) • [Request Feature](https://github.com/Efrice/watermark/issues)
+[Live Demo](https://9m2pju.github.io/Watermark-PDF/) • [Report Bug](https://github.com/9M2PJU/Watermark-PDF/issues) • [Request Feature](https://github.com/9M2PJU/Watermark-PDF/issues)
 
 </div>
 
@@ -24,6 +24,7 @@
 - 🗜️ **Compression** — Adjust image quality for optimal file size
 - 💾 **Save Settings** — Persist your configuration for future sessions
 - 🌙 **Dark Mode** — Beautiful modern dark theme with light mode support
+- 📱 **Responsive** — Works on desktop and mobile devices
 
 ---
 
@@ -37,8 +38,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/Efrice/watermark.git
-cd watermark
+git clone https://github.com/9M2PJU/Watermark-PDF.git
+cd Watermark-PDF
 
 # Install dependencies
 pnpm install
@@ -76,17 +77,6 @@ Output will be in the `docs` folder, ready for GitHub Pages deployment.
 
 ---
 
-## 🎨 UI Design
-
-The interface features a modern, premium design:
-
-- **Glassmorphism** — Frosted glass panels with backdrop blur
-- **Gradient Accents** — Vibrant purple-to-cyan color scheme
-- **Smooth Animations** — Micro-interactions and hover effects
-- **Responsive Layout** — Adapts to different screen sizes
-
----
-
 ## 🌐 Deploy to GitHub Pages
 
 1. Fork this repository
@@ -96,7 +86,7 @@ The interface features a modern, premium design:
 5. Select **main** branch and **/docs** folder
 6. Save and wait for deployment
 
-Your app will be available at: `https://<username>.github.io/watermark/`
+Your app will be available at: `https://<username>.github.io/Watermark-PDF/`
 
 ---
 
@@ -119,8 +109,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
+## 🙏 Credits
+
+- Original project by [Efrice](https://github.com/Efrice)
+- Modernized UI by [9M2PJU](https://github.com/9M2PJU)
+
+---
+
 <div align="center">
 
-Made with ❤️ by [Efrice](https://github.com/Efrice)
+Made with ❤️ by [9M2PJU](https://github.com/9M2PJU)
 
 </div>

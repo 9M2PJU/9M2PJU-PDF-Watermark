@@ -3,11 +3,12 @@ import Index from '~/pages/index.vue';
 </script>
 
 <template>
-  <main 
-    class="font-sans min-h-screen text-gray-200 dark bg-gradient-to-br from-slate-950 via-violet-950/20 to-slate-950"
-  >
-    <div class="fixed inset-0 pointer-events-none" style="background: radial-gradient(ellipse at top, rgba(124,58,237,0.15), transparent 50%)"></div>
-    <div class="relative z-10 p-4 md:p-6 lg:p-8">
+  <main class="min-h-screen bg-slate-900 text-gray-200 font-sans">
+    <!-- Background gradient -->
+    <div class="fixed inset-0 bg-gradient-to-br from-slate-900 via-violet-950/30 to-slate-900 pointer-events-none"></div>
+    
+    <!-- Content -->
+    <div class="relative z-10 p-3 sm:p-4 lg:p-6">
       <Index />
     </div>
   </main>

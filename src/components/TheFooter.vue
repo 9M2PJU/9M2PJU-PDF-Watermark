@@ -1,22 +1,21 @@
 <template>
-  <nav class="flex items-center justify-center gap-3">
+  <div class="flex items-center justify-center gap-2">
     <button 
-      class="icon-btn"
+      class="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-600 text-gray-400 hover:text-white transition-colors"
       @click="toggleDark()"
       title="Toggle theme"
     >
-      <div i-carbon-sun class="dark:hidden" />
-      <div i-carbon-moon class="hidden dark:block" />
+      <span i-carbon-sun class="text-sm block dark:hidden"></span>
+      <span i-carbon-moon class="text-sm hidden dark:block"></span>
     </button>
 
     <a
-      class="icon-btn"
-      rel="noreferrer"
-      href="https://github.com/Efrice/watermark.git"
+      href="https://github.com/9M2PJU/Watermark-PDF"
       target="_blank"
+      class="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-600 text-gray-400 hover:text-white transition-colors"
       title="View on GitHub"
     >
-      <div i-carbon-logo-github />
+      <span i-carbon-logo-github class="text-sm"></span>
     </a>
-  </nav>
+  </div>
 </template>
