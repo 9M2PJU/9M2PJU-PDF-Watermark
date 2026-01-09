@@ -4,13 +4,9 @@ import Index from '~/pages/index.vue';
 
 <template>
   <main 
-    font-sans 
-    min-h-screen
-    bg-gradient-to-br from-slate-950 via-violet-950/20 to-slate-950
-    text="gray-200"
-    class="dark"
+    class="font-sans min-h-screen text-gray-200 dark bg-gradient-to-br from-slate-950 via-violet-950/20 to-slate-950"
   >
-    <div class="fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(124,58,237,0.15),transparent_50%)] pointer-events-none" />
+    <div class="fixed inset-0 pointer-events-none" style="background: radial-gradient(ellipse at top, rgba(124,58,237,0.15), transparent 50%)"></div>
     <div class="relative z-10 p-4 md:p-6 lg:p-8">
       <Index />
     </div>
