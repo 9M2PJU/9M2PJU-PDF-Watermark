@@ -111,7 +111,7 @@ function download() {
     <div class="flex gap-2 mb-4">
       <label class="inline-flex items-center gap-1.5 px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium rounded-lg cursor-pointer transition-colors">
         <span i-carbon-upload class="text-base"></span>
-        <span>Load</span>
+        <span>Upload</span>
         <input type="file" accept="image/*, application/pdf" class="hidden" @change="load">
       </label>
       
