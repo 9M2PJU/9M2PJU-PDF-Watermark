@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎨 9M2PJU Watermark PDF
+# 🎨 9M2PJU PDF Watermark
 
 **Add beautiful watermarks to your images and PDFs — right in your browser**
 
@@ -108,4 +108,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Made with ❤️ by [9M2PJU](https://github.com/9M2PJU)
 
 </div>
+
 
