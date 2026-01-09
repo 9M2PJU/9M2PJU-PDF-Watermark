@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎨 9M2PJU Watermark PDF
+# 🎨 9M2PJU PDF Watermark
 
 **Add beautiful watermarks to your images and PDFs — right in your browser**
 
@@ -9,7 +9,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-4.x-646cff.svg)](https://vitejs.dev/)
 
-[Live Demo](https://9m2pju.github.io/Watermark-PDF/) • [Report Bug](https://github.com/9M2PJU/Watermark-PDF/issues) • [Request Feature](https://github.com/9M2PJU/Watermark-PDF/issues)
+[Live Demo](https://pdf-watermark.hamradio.my) • [Report Bug](https://github.com/9M2PJU/9M2PJU-PDF-Watermark/issues) • [Request Feature](https://github.com/9M2PJU/9M2PJU-PDF-Watermark/issues)
 
 </div>
 
@@ -38,8 +38,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/9M2PJU/Watermark-PDF.git
-cd Watermark-PDF
+git clone https://github.com/9M2PJU/9M2PJU-PDF-Watermark.git
+cd 9M2PJU-PDF-Watermark
 
 # Install dependencies
 pnpm install
@@ -86,7 +86,7 @@ Output will be in the `docs` folder, ready for GitHub Pages deployment.
 5. Select **main** branch and **/docs** folder
 6. Save and wait for deployment
 
-Your app will be available at: `https://<username>.github.io/Watermark-PDF/`
+Your app will be available at: `https://<username>.github.io/9M2PJU-PDF-Watermark/`
 
 ---
 

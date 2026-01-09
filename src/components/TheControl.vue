@@ -14,7 +14,7 @@ const { config } = defineProps<{
         <span i-material-symbols-add-photo-alternate-rounded class="text-xl text-violet-400"></span>
         <span i-material-symbols:picture-as-pdf class="text-xl text-cyan-400"></span>
       </div>
-      <h1 class="text-base font-bold text-white">9M2PJU Watermark PDF</h1>
+      <h1 class="text-base font-bold text-white">9M2PJU PDF Watermark</h1>
       <p class="text-xs text-gray-400">Add watermark to image/pdf</p>
     </div>
 
