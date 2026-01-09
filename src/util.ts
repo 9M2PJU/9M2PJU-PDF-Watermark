@@ -17,18 +17,25 @@ export function generateCanvas(config: Config, image: HTMLImageElement | HTMLCan
   const { width, height, words, compression } = config
   const canvas = document.createElement('canvas')
   const context = canvas.getContext('2d')!
-  canvas.width = loadInit ? image.width : width
-  canvas.height = loadInit ? image.height : height
+  // Use actual image dimensions for initial load, otherwise use config
+  const canvasWidth = loadInit ? image.width : width
+  const canvasHeight = loadInit ? image.height : height
+  canvas.width = canvasWidth
+  canvas.height = canvasHeight
   context.drawImage(image, 0, 0, canvas.width, canvas.height)
-  if (words.trim().length > 0) addWaterMark(config, context)
+  // Pass actual canvas dimensions to ensure watermark auto-fits correctly
+  if (words.trim().length > 0) addWaterMark(config, context, canvasWidth, canvasHeight)
   return {
     src: canvas.toDataURL('image/jpeg', compression),
     newCanvas: canvas
   }
 }
 
-function addWaterMark(config: Config, context: CanvasRenderingContext2D) {
-  const { width, height, words, fontSize, color, opacity, rotate } = config
+function addWaterMark(config: Config, context: CanvasRenderingContext2D, actualWidth?: number, actualHeight?: number) {
+  // Use actual dimensions if provided, otherwise fall back to config
+  const width = actualWidth ?? config.width
+  const height = actualHeight ?? config.height
+  const { words, fontSize, color, opacity, rotate } = config
   let { row, col, startX, startY, offsetX, offsetY } = config
 
   // Calculate text dimensions
