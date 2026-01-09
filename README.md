@@ -9,7 +9,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-4.x-646cff.svg)](https://vitejs.dev/)
 
-[Live Demo](https://9m2pju.github.io/Watermark-PDF/) • [Report Bug](https://github.com/9M2PJU/Watermark-PDF/issues) • [Request Feature](https://github.com/9M2PJU/Watermark-PDF/issues)
+[Live Demo](https://pdf-watermark.hamradio.my/) • [Report Bug](https://github.com/9M2PJU/Watermark-PDF/issues) • [Request Feature](https://github.com/9M2PJU/Watermark-PDF/issues)
 
 </div>
 
@@ -77,19 +77,6 @@ Output will be in the `docs` folder, ready for GitHub Pages deployment.
 
 ---
 
-## 🌐 Deploy to GitHub Pages
-
-1. Fork this repository
-2. Run `pnpm build` to generate the `docs` folder
-3. Go to **Settings** → **Pages**
-4. Set Source to **Deploy from a branch**
-5. Select **main** branch and **/docs** folder
-6. Save and wait for deployment
-
-Your app will be available at: `https://<username>.github.io/Watermark-PDF/`
-
----
-
 ## 🛠️ Tech Stack
 
 | Technology | Purpose |
@@ -121,3 +108,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Made with ❤️ by [9M2PJU](https://github.com/9M2PJU)
 
 </div>
+
