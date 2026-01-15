@@ -3,11 +3,14 @@
 # ⚡ 9M2PJU PDF WATERMARK ⚡
 ### **THE NEXT GENERATION OF DOCUMENT SECURITY**
 
-[![v2.0.0](https://img.shields.io/badge/RELEASE-v2.0.0-00f2ea?style=for-the-badge&logo=github)](https://github.com/9M2PJU/9M2PJU-PDF-Watermark/releases)
-[![Security](https://img.shields.io/badge/SECURITY-MAXIMUM-ff0055?style=for-the-badge&logo=adguard)](LICENSE)
-[![Performance](https://img.shields.io/badge/SPEED-BLAZING-fcbf49?style=for-the-badge&logo=speedtest)](https://vitejs.dev/)
+[![v2.0.0](https://img.shields.io/badge/release-v2.0.0-blue.svg?style=flat-square)](https://github.com/9M2PJU/9M2PJU-PDF-Watermark/releases)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg?style=flat-square&logo=vue.js)](https://vuejs.org/)
+[![Vite](https://img.shields.io/badge/vite-4.x-646cff.svg?style=flat-square&logo=vite)](https://vitejs.dev/)
 
 [🔴 LIVE DEPLOYMENT](https://pdf-watermark.hamradio.my) • [REPORT ANOMALY](https://github.com/9M2PJU/9M2PJU-PDF-Watermark/issues)
+
+**Based on original project by [Efrice](https://github.com/Efrice)**
 
 </div>
 
