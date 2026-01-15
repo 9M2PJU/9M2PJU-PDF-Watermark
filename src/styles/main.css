@@ -1,237 +1,172 @@
-/* ===== Design Tokens ===== */
+/* ===== Clean Slate Design Tokens ===== */
 :root {
-  /* Colors */
-  --color-bg-primary: #0f0f14;
-  --color-bg-secondary: #1a1a24;
-  --color-bg-card: rgba(30, 30, 42, 0.7);
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.15);
-  --color-text-primary: #f0f0f5;
-  --color-text-secondary: rgba(240, 240, 245, 0.7);
-  --color-text-muted: rgba(240, 240, 245, 0.5);
+  /* Core Colors */
+  --bg-main: #f8fafc;
+  --bg-panel: #ffffff;
+  --bg-input: #f1f5f9;
 
-  /* Accent gradient */
-  --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #06b6d4 100%);
-  --gradient-accent-hover: linear-gradient(135deg, #8b5cf6 0%, #60a5fa 50%, #22d3ee 100%);
-  --color-accent: #7c3aed;
-  --color-accent-light: #a78bfa;
+  --border-light: #e2e8f0;
+  --border-active: #cbd5e1;
+  --border-focus: #94a3b8;
+
+  --text-main: #0f172a;
+  --text-dim: #475569;
+  --text-muted: #94a3b8;
+
+  /* Brand Color - Professional Blue */
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-bg: rgba(59, 130, 246, 0.1);
+
+  /* Spacing & Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.3);
-
-  /* Spacing */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
   /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s ease;
-  --transition-slow: 0.4s ease;
+  --ease: 0.2s ease;
 }
 
-/* Light mode overrides */
-html:not(.dark) {
-  --color-bg-primary: #f5f5f7;
-  --color-bg-secondary: #ffffff;
-  --color-bg-card: rgba(255, 255, 255, 0.8);
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-border-hover: rgba(0, 0, 0, 0.15);
-  --color-text-primary: #1a1a2e;
-  --color-text-secondary: rgba(26, 26, 46, 0.7);
-  --color-text-muted: rgba(26, 26, 46, 0.5);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.15);
-  --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.15);
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-main: #0f172a;
+    --bg-panel: #1e293b;
+    --bg-input: #020617;
+
+    --border-light: #334155;
+    --border-active: #475569;
+    --border-focus: #64748b;
+
+    --text-main: #f8fafc;
+    --text-dim: #cbd5e1;
+    --text-muted: #94a3b8;
+
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  }
 }
 
-/* ===== Base Styles ===== */
 html,
 body,
 #app {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
 }
 
-html {
-  background: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  transition: background var(--transition-normal), color var(--transition-normal);
-}
+/* ===== Components ===== */
 
-html.dark {
-  background: var(--color-bg-primary);
-}
-
-/* ===== Glass Card ===== */
+/* Card */
 .glass-card {
-  background: var(--color-bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--color-border);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: box-shadow var(--ease);
 }
 
 .glass-card:hover {
-  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-lg);
 }
 
-/* ===== Gradient Button ===== */
+/* Primary Button */
 .btn-gradient {
-  background: var(--gradient-accent);
+  background: var(--primary);
   color: white;
-  font-weight: 600;
-  padding: 10px 24px;
+  font-weight: 500;
+  padding: 10px 20px;
   border-radius: var(--radius-md);
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all var(--transition-fast);
-  box-shadow: var(--shadow-sm), 0 0 20px rgba(124, 58, 237, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-gradient::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--gradient-accent-hover);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
-.btn-gradient:hover::before {
-  opacity: 1;
+  transition: background-color var(--ease), transform var(--ease);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
 }
 
 .btn-gradient:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md), var(--shadow-glow);
+  background: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
 .btn-gradient:active {
   transform: translateY(0);
 }
 
-.btn-gradient:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none !important;
-  box-shadow: var(--shadow-sm) !important;
-}
-
-.btn-gradient span {
-  position: relative;
-  z-index: 1;
-}
-
-/* ===== Secondary Button ===== */
+/* Secondary Button */
 .btn-secondary {
-  background: var(--color-bg-card);
-  color: var(--color-text-primary);
+  background: var(--bg-panel);
+  color: var(--text-main);
   font-weight: 500;
-  padding: 10px 24px;
+  padding: 10px 20px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--border-light);
   cursor: pointer;
-  transition: all var(--transition-fast);
-  backdrop-filter: blur(10px);
+  transition: all var(--ease);
+  font-size: 14px;
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-accent-light);
-  background: rgba(124, 58, 237, 0.1);
+  border-color: var(--border-active);
+  background: var(--bg-main);
 }
 
-/* ===== Modern Input ===== */
-.input-modern {
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: 10px 14px;
-  color: var(--color-text-primary);
-  font-size: 14px;
-  transition: all var(--transition-fast);
-  outline: none;
-}
-
-.input-modern:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
-}
-
-.input-modern::placeholder {
-  color: var(--color-text-muted);
-}
-
-/* ===== Textarea ===== */
+/* Inputs */
+.input-modern,
 .textarea-modern {
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border);
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
-  padding: 10px 14px;
-  color: var(--color-text-primary);
+  padding: 8px 12px;
+  color: var(--text-main);
   font-size: 14px;
-  resize: vertical;
-  min-height: 60px;
-  transition: all var(--transition-fast);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color var(--ease);
   outline: none;
 }
 
+.input-modern:focus,
 .textarea-modern:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+  border-color: var(--primary);
+  background: var(--bg-panel);
 }
 
-/* ===== Range Slider ===== */
+/* Slider */
 .range-modern {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
   height: 6px;
+  background: var(--bg-input);
   border-radius: 3px;
-  background: linear-gradient(90deg, var(--color-accent) 0%, rgba(124, 58, 237, 0.2) 100%);
   outline: none;
-  transition: all var(--transition-fast);
 }
 
 .range-modern::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: white;
-  border: 3px solid var(--color-accent);
+  border: 2px solid var(--primary);
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-fast);
+  transition: transform var(--ease);
 }
 
 .range-modern::-webkit-slider-thumb:hover {
   transform: scale(1.1);
-  box-shadow: var(--shadow-md), 0 0 10px rgba(124, 58, 237, 0.4);
-}
-
-.range-modern::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: white;
-  border: 3px solid var(--color-accent);
-  cursor: pointer;
-  box-shadow: var(--shadow-sm);
 }
 
 /* ===== Upload Zone ===== */

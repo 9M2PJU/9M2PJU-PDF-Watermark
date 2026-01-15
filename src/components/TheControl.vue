@@ -10,15 +10,14 @@ const showAdvanced = ref(false)
 </script>
 
 <template>
-  <div class="bg-slate-800/50 backdrop-blur border border-slate-700/50 rounded-xl p-4 lg:sticky lg:top-4">
+  <div class="glass-card p-4 lg:sticky lg:top-4 bg-white dark:bg-slate-800">
     <!-- Header -->
-    <div class="text-center pb-3 mb-3 border-b border-slate-700/50">
+    <div class="text-center pb-3 mb-3 border-b border-border-light">
       <div class="flex items-center justify-center gap-2 mb-2">
-        <span i-material-symbols-add-photo-alternate-rounded class="text-xl text-violet-400"></span>
-        <span i-material-symbols:picture-as-pdf class="text-xl text-cyan-400"></span>
+        <span class="text-xl">📄</span>
       </div>
-      <h1 class="text-base font-bold text-white">9M2PJU PDF Watermark</h1>
-      <p class="text-xs text-gray-400">Add watermark to image/pdf</p>
+      <h1 class="text-base font-bold text-text-main">PDF Watermark</h1>
+      <p class="text-xs text-text-dim">Secure & Private Watermarking</p>
     </div>
 
     <!-- Basic Settings -->
