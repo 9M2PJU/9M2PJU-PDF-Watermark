@@ -152,9 +152,29 @@ export async function loadPdf(url: string, config: Config, wrap: Ref<HTMLElement
 
   const totalPages = pdfDoc.numPages;
   const pages: imgData[] = new Array(totalPages)
-  let renderedCount = 0
 
+  // Process pages with main thread yielding
+  await processPages(pdfDoc, totalPages, config, loadInit, wrap, pages);
+
+  imgData.length = 0
+  imgData.push(...pages)
+  loading.value = false
+}
+
+async function processPages(
+  pdfDoc: any,
+  totalPages: number,
+  config: Config,
+  loadInit: boolean,
+  wrap: Ref<HTMLElement>,
+  pages: imgData[]
+) {
   for (let i = 1; i <= totalPages; i++) {
+    // Yield to main thread every 2 pages to keep UI responsive
+    if (i % 2 === 0) {
+      await new Promise(resolve => setTimeout(resolve, 0));
+    }
+
     const page = await pdfDoc.getPage(i)
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
@@ -176,16 +196,8 @@ export async function loadPdf(url: string, config: Config, wrap: Ref<HTMLElement
     await page.render(renderContext).promise
     const { newCanvas, src } = generateCanvas(config, canvas, false)
 
-    // Sortable insertion
     pages[i - 1] = { src, width: canvas.width, height: canvas.height }
     wrap.value.appendChild(newCanvas)
-
-    renderedCount++
-    if (renderedCount === totalPages) {
-      imgData.length = 0
-      imgData.push(...pages)
-      loading.value = false
-    }
   }
 }
 

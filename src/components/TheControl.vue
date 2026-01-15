@@ -67,7 +67,7 @@ const showAdvanced = ref(false)
     <!-- Footer -->
     <div class="mt-3 pt-3 border-t border-slate-700/50">
       <p class="text-[10px] text-gray-500 text-center mb-2">
-        Remake by <a href="https://hamradio.my" target="_blank" class="text-violet-400 hover:text-violet-300 underline">9M2PJU</a>
+        Remake by <a href="https://hamradio.my" target="_blank" rel="noopener noreferrer" class="text-blue-800 hover:text-blue-600 underline">9M2PJU</a>
       </p>
       <TheFooter />
     </div>
