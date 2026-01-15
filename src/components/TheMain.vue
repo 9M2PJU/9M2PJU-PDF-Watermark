@@ -111,7 +111,7 @@ function download() {
     <div class="flex gap-2 mb-4">
       <label class="btn-gradient">
         <span i-carbon-upload class="mr-2"></span>
-        <span>Upload File</span>
+        <span class="uppercase tracking-wider">Upload File</span>
         <input type="file" accept="image/*, application/pdf" class="hidden" @change="load">
       </label>
       
@@ -121,7 +121,7 @@ function download() {
         @click="download"
       >
         <span i-carbon-download class="mr-2"></span>
-        <span>Download PDF</span>
+        <span class="uppercase tracking-wider">Export PDF</span>
       </button>
     </div>
 
@@ -146,13 +146,13 @@ function download() {
       <!-- Upload Zone -->
       <label 
         v-else 
-        class="upload-zone w-full h-48 flex flex-col items-center justify-center cursor-pointer group"
+        class="upload-zone w-full p-12 cursor-pointer group"
       >
-        <div class="p-4 rounded-full bg-white/5 mb-4 group-hover:bg-violet-500/10 transition-colors">
-          <div i-carbon-document-add class="text-3xl text-violet-400"></div>
+        <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-white/10 transition-all duration-300">
+          <div i-carbon-document-add class="text-2xl text-white/50 group-hover:text-white/80"></div>
         </div>
-        <p class="text-sm text-gray-400 group-hover:text-violet-300 transition-colors">Select PDF or Image to Watermark</p>
-        <p class="text-[10px] text-gray-500 mt-2">Maximum file size: 10MB</p>
+        <p class="text-sm font-medium text-white/70 group-hover:text-white transition-colors">Select a PDF or Image</p>
+        <p class="text-[11px] text-white/30 uppercase tracking-[0.1em] mt-3">Drop files anywhere to start</p>
         <input type="file" accept="image/*, application/pdf" class="hidden" @change="load">
       </label>
     </div>

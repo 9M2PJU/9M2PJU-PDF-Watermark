@@ -7,19 +7,19 @@ const showDonateModal = ref(false)
     <a
       href="https://hamradio.my"
       target="_blank"
-      class="p-2 rounded-lg bg-slate-700/50 hover:bg-slate-600 text-gray-400 hover:text-white transition-colors"
+      class="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-white/50 hover:text-white transition-all"
       title="Visit hamradio.my"
     >
-      <div i-carbon-home class="text-sm"></div>
+      <div i-carbon-home class="text-xs"></div>
     </a>
     
     <!-- Donate Button -->
     <button
       @click="showDonateModal = true"
-      class="p-2 rounded-lg bg-pink-600/70 hover:bg-pink-500 text-white transition-colors"
+      class="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-[#ff006e]/50 text-white/50 hover:text-[#ff006e] transition-all"
       title="Support this project"
     >
-      <div i-carbon-favorite class="text-sm"></div>
+      <div i-carbon-favorite class="text-xs"></div>
     </button>
   </div>
 
@@ -30,12 +30,12 @@ const showDonateModal = ref(false)
       class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-sm"
       @click.self="showDonateModal = false"
     >
-      <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 max-w-sm mx-4 text-center shadow-2xl">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-lg font-bold text-white">Support This Project</h3>
+      <div class="glass-card p-8 max-w-[340px] mx-4 text-center shadow-2xl animate-fade-in">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-sm font-bold tracking-widest uppercase text-white">Project Support</h3>
           <button
             @click="showDonateModal = false"
-            class="p-1 rounded-lg hover:bg-slate-700 text-gray-400 hover:text-white transition-colors"
+            class="p-1 rounded-md hover:bg-white/10 text-white/40 hover:text-white transition-all"
           >
             <div i-carbon-close class="text-lg"></div>
           </button>

@@ -33,7 +33,7 @@ const labels: Record<string, string> = {
     <!-- Label -->
     <label 
       :for="property"
-      class="text-xs text-gray-400"
+      class="label-text"
       :title="tooltips[property]"
     >
       {{ labels[property] || property }}
