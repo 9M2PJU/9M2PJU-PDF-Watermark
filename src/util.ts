@@ -149,42 +149,46 @@ export async function loadPdf(url: string, config: Config, wrap: Ref<HTMLElement
 
   imgData.length = 0
 
-  loadingTask.promise.then((pdfDoc) => {
-    if (wrap.value) wrap.value.innerHTML = ''
-    const totalPages = pdfDoc.numPages;
-    for (let i = 1; i <= totalPages; i++) {
-      pdfDoc.getPage(i).then((page) => {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
-        const viewport = page.getViewport({ scale: 1 });
+  const pdfDoc = await loadingTask.promise
+  if (wrap.value) wrap.value.innerHTML = ''
 
-        canvas.width = viewport.width
-        canvas.height = viewport.height
+  const totalPages = pdfDoc.numPages;
+  const pages: imgData[] = new Array(totalPages)
+  let renderedCount = 0
 
-        // Only update config dimensions on initial load to prevent re-triggering the watcher
-        if (loadInit) {
-          config.width = canvas.width
-          config.height = canvas.height
-        }
+  for (let i = 1; i <= totalPages; i++) {
+    const page = await pdfDoc.getPage(i)
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+    const viewport = page.getViewport({ scale: 1 });
 
-        const renderContext = {
-          canvasContext: ctx,
-          viewport,
-        }
+    canvas.width = viewport.width
+    canvas.height = viewport.height
 
-        const renderTask = page.render(renderContext);
-
-        renderTask.promise.then(function () {
-          const { newCanvas, src } = generateCanvas(config, canvas, loadInit)
-          wrap.value.appendChild(newCanvas)
-          imgData.push({ src, width: canvas.width, height: canvas.height })
-          if (imgData.length === totalPages) {
-            loading.value = false
-          }
-        })
-      })
+    if (loadInit && i === 1) {
+      config.width = canvas.width
+      config.height = canvas.height
     }
-  })
+
+    const renderContext = {
+      canvasContext: ctx,
+      viewport,
+    }
+
+    await page.render(renderContext).promise
+    const { newCanvas, src } = generateCanvas(config, canvas, false)
+
+    // Sortable insertion
+    pages[i - 1] = { src, width: canvas.width, height: canvas.height }
+    wrap.value.appendChild(newCanvas)
+
+    renderedCount++
+    if (renderedCount === totalPages) {
+      imgData.length = 0
+      imgData.push(...pages)
+      loading.value = false
+    }
+  }
 }
 
 export function img2Pdf(name: string, loading: Ref<boolean>) {
@@ -200,6 +204,7 @@ export function img2Pdf(name: string, loading: Ref<boolean>) {
     const { src, width, height } = imgData[i]
     doc.addPage({
       size: [width, height],
+      margin: 0
     });
     doc.image(src, 0, 0, { width: width, height: height })
   }
