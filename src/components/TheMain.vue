@@ -109,19 +109,19 @@ function download() {
   <div>
     <!-- Buttons -->
     <div class="flex gap-2 mb-4">
-      <label class="btn-gradient">
-        <span i-carbon-upload class="mr-2"></span>
-        <span class="uppercase tracking-wider">Upload File</span>
-        <input type="file" accept="image/*, application/pdf" class="hidden" @change="load">
-      </label>
+      <button class="btn-gradient relative overflow-hidden">
+        <span class="mr-2">📂</span>
+        <span>Open...</span>
+        <input type="file" accept="image/*, application/pdf" class="absolute inset-0 opacity-0 cursor-pointer" @change="load">
+      </button>
       
       <button
         class="btn-secondary flex items-center"
         :disabled="url === '' && pdfUrl === ''"
         @click="download"
       >
-        <span i-carbon-download class="mr-2"></span>
-        <span class="uppercase tracking-wider">Export PDF</span>
+        <span class="mr-2">💾</span>
+        <span>Save As...</span>
       </button>
     </div>
 
@@ -148,11 +148,16 @@ function download() {
         v-else 
         class="upload-zone w-full p-12 cursor-pointer group"
       >
-        <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-white/10 transition-all duration-300">
-          <div i-carbon-document-add class="text-2xl text-white/50 group-hover:text-white/80"></div>
+        <div class="mb-4">
+          <!-- Classic Windows Icon Simulation -->
+          <div class="w-16 h-20 bg-white border-2 border-black relative mx-auto shadow-[2px_2px_0_0_rgba(0,0,0,0.5)]">
+             <div class="absolute top-0 right-0 border-l-2 border-b-2 border-black w-4 h-4 bg-gray-200"></div>
+             <div class="absolute bottom-2 left-2 right-2 h-1 bg-black"></div>
+             <div class="absolute bottom-4 left-2 right-2 h-1 bg-black"></div>
+             <div class="absolute bottom-6 left-2 right-2 h-1 bg-black"></div>
+          </div>
         </div>
-        <p class="text-sm font-medium text-white/70 group-hover:text-white transition-colors">Select a PDF or Image</p>
-        <p class="text-[11px] text-white/30 uppercase tracking-[0.1em] mt-3">Drop files anywhere to start</p>
+        <p class="text-sm font-bold text-black mb-1">Drag file here to open</p>
         <input type="file" accept="image/*, application/pdf" class="hidden" @change="load">
       </label>
     </div>

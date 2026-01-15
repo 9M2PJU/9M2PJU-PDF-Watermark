@@ -1,27 +1,22 @@
-/* ===== Obsidian Design System ===== */
+/* ===== 90s Retro Design System ===== */
 :root {
-  /* Colors */
-  --bg-color: #000000;
-  --panel-bg: rgba(255, 255, 255, 0.03);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.15);
-  --text-main: #ffffff;
-  --text-dim: #a1a1a1;
-  --text-muted: #666666;
+  /* System Colors */
+  --win-teal: #008080;
+  --win-gray: #c0c0c0;
+  --win-gray-light: #dfdfdf;
+  --win-gray-dark: #808080;
+  --win-blue: #000080;
+  --win-white: #ffffff;
+  --win-black: #000000;
 
-  /* Accent */
-  --accent: #ffffff;
-  --accent-soft: rgba(255, 255, 255, 0.1);
-  --violet: #8b5cf6;
+  /* Bevel Shadows */
+  --bevel-light: #ffffff;
+  --bevel-shadow: #808080;
+  --bevel-dark: #000000;
 
-  /* Spacing & Radius */
-  --radius-xl: 12px;
-  --radius-lg: 8px;
-  --radius-md: 6px;
-  --radius-sm: 4px;
-
-  --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
-  --transition: 0.2s ease-in-out;
+  /* Fonts */
+  --font-sys: 'MS Sans Serif', 'Segoe UI', sans-serif;
+  --font-mono: 'Courier New', monospace;
 }
 
 html,
@@ -30,173 +25,176 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: var(--font-sans);
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-sys);
+  background-color: var(--win-teal);
+  color: var(--win-black);
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
 }
 
-/* ===== Elegant Glass ===== */
+/* ===== Classic Window ===== */
 .glass-card {
-  background: var(--panel-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  transition: all var(--transition);
+  background: var(--win-gray);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-dark);
+  border-bottom: 2px solid var(--bevel-dark);
+  box-shadow: 1px 1px 0 0 var(--win-black);
+  padding: 4px;
 }
 
-.glass-card:hover {
-  border-color: var(--border-strong);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* ===== Professional Buttons ===== */
-.btn-gradient {
-  background: #ffffff;
-  color: #000000;
-  font-weight: 600;
+/* Title Bar Simulation */
+.glass-card::before {
+  content: "9M2PJU Watermark.exe";
+  display: block;
+  background: var(--win-blue);
+  color: var(--win-white);
+  padding: 2px 4px;
+  font-weight: bold;
   font-size: 13px;
-  padding: 10px 20px;
-  border-radius: var(--radius-lg);
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
-.btn-gradient:hover {
-  background: #f0f0f0;
-  transform: translateY(-1px);
-}
-
-.btn-gradient:active {
-  transform: translateY(0);
-}
-
+/* ===== Classic Button ===== */
+.btn-gradient,
 .btn-secondary {
-  background: transparent;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 13px;
-  padding: 10px 20px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
+  background: var(--win-gray);
+  color: var(--win-black);
+  font-size: 12px;
+  padding: 6px 12px;
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-shadow);
+  border-bottom: 2px solid var(--bevel-shadow);
+  box-shadow: 1px 1px 0 0 var(--win-black);
   cursor: pointer;
-  transition: all var(--transition);
+  font-family: var(--font-sys);
+  text-transform: capitalize;
 }
 
+.btn-gradient:active,
+.btn-secondary:active,
+.btn-gradient:hover:active {
+  border-top: 2px solid var(--bevel-shadow);
+  border-left: 2px solid var(--bevel-shadow);
+  border-right: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-light);
+  box-shadow: none;
+  transform: translate(1px, 1px);
+}
+
+.btn-gradient:hover,
 .btn-secondary:hover {
-  background: var(--accent-soft);
-  border-color: var(--border-strong);
+  background: var(--win-gray);
+  /* No hover color change in 90s */
 }
 
-.btn-secondary:disabled {
-  opacity: 0.2;
-  cursor: not-allowed;
+.btn-gradient:focus,
+.btn-secondary:focus {
+  outline: 1px dotted var(--win-black);
+  outline-offset: -4px;
 }
 
-/* ===== Minimal Inputs ===== */
+/* ===== Classic Inputs ===== */
 .input-modern,
 .textarea-modern {
-  background: transparent;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 8px 12px;
-  color: var(--text-main);
-  font-size: 13px;
-  transition: all var(--transition);
+  background: var(--win-white);
+  color: var(--win-black);
+  border-top: 2px solid var(--bevel-shadow);
+  border-left: 2px solid var(--bevel-shadow);
+  border-right: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-light);
+  padding: 4px;
+  font-family: var(--font-sys);
+  font-size: 12px;
+  border-radius: 0;
   outline: none;
 }
 
 .input-modern:focus {
-  border-color: var(--border-strong);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--win-white);
 }
 
-.input-modern::placeholder {
-  color: var(--text-muted);
-}
-
-/* ===== Discrete Range ===== */
+/* ===== Range Slider ===== */
 .range-modern {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 2px;
-  background: var(--border-subtle);
-  outline: none;
+  height: 4px;
+  background: var(--win-black);
+  border-right: 1px solid var(--bevel-light);
+  border-bottom: 1px solid var(--bevel-light);
+  margin: 10px 0;
 }
 
 .range-modern::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
   width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--text-main);
+  height: 20px;
+  background: var(--win-gray);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-dark);
+  border-bottom: 2px solid var(--bevel-dark);
   cursor: pointer;
-  border: none;
-  transition: 0.1s;
-}
-
-.range-modern::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
+  box-shadow: 1px 1px 0 0 var(--win-black);
 }
 
 /* ===== Upload Zone ===== */
 .upload-zone {
-  border: 1px dashed var(--border-subtle);
-  border-radius: var(--radius-xl);
-  background: rgba(255, 255, 255, 0.01);
-  transition: all var(--transition);
+  border: 2px solid var(--bevel-shadow);
+  /* Inset look */
+  border-right-color: var(--bevel-light);
+  border-bottom-color: var(--bevel-light);
+  background: var(--win-white);
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 280px;
+  min-height: 200px;
 }
 
-.upload-zone:hover {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: var(--border-strong);
+.upload-zone:active {
+  background: #e0e0e0;
 }
 
-/* ===== Animations ===== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-in-out forwards;
-}
-
-.label-text {
-  color: var(--text-dim);
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
+/* ===== Scrollbar ===== */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 16px;
+  height: 16px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--win-gray-light);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border-radius: 10px;
+  background: var(--win-gray);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-shadow);
+  border-bottom: 2px solid var(--bevel-shadow);
+}
+
+::-webkit-scrollbar-button {
+  background: var(--win-gray);
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-shadow);
+  border-bottom: 2px solid var(--bevel-shadow);
+}
+
+/* ===== Utility ===== */
+.label-text {
+  color: var(--win-black);
+  font-size: 12px;
+}
+
+.animate-fade-in {
+  /* No animation in 90s */
+  animation: none;
 }

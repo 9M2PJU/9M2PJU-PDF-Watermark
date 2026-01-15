@@ -10,20 +10,12 @@ const showAdvanced = ref(false)
 </script>
 
 <template>
-  <div class="glass-card p-6 lg:sticky lg:top-4 animate-fade-in shadow-2xl">
-    <!-- Header -->
-    <div class="text-center pb-6 mb-6 border-b border-border-subtle">
-      <div class="flex items-center justify-center gap-4 mb-4">
-        <div class="p-2.5 rounded-xl bg-white/5 border border-white/10">
-          <span i-material-symbols-add-photo-alternate-rounded class="text-2xl text-white/80"></span>
-        </div>
-        <div class="p-2.5 rounded-xl bg-white/5 border border-white/10">
-          <span i-material-symbols:picture-as-pdf class="text-2xl text-white/80"></span>
-        </div>
+    
+    <div class="px-2 pb-2">
+      <!-- Old Header Removed for classic toolbox look -->
+      <div class="text-center py-2 mb-2 border-b border-gray-400 border-b-white">
+        <h1 class="text-base font-bold">PDF Watermark</h1>
       </div>
-      <h1 class="text-xl font-bold tracking-tight text-white mb-1">9M2PJU WATERMARK</h1>
-      <p class="text-[11px] font-medium tracking-[0.2em] text-text-muted uppercase">Premium Security Utility</p>
-    </div>
 
     <!-- Basic Settings -->
     <div class="space-y-2">
