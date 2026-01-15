@@ -1,10 +1,11 @@
 <div align="center">
 
-# 🎨 9M2PJU PDF Watermark
+# 📄 9M2PJU PDF Watermark
 
-**Add beautiful watermarks to your images and PDFs — right in your browser**
+**Add professional watermarks to your images and PDFs — securely in your browser**
 
-[![MIT License](https://img.shields.io/badge/License-MIT-violet.svg)](LICENSE)
+[![v2.0.0](https://img.shields.io/badge/release-v2.0.0-blue.svg)](https://github.com/9M2PJU/9M2PJU-PDF-Watermark/releases)
+[![MIT License](https://img.shields.io/badge/License-MIT-gray.svg)](LICENSE)
 [![Vue 3](https://img.shields.io/badge/Vue-3.x-42b883.svg)](https://vuejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-4.x-646cff.svg)](https://vitejs.dev/)
