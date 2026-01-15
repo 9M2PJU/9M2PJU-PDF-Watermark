@@ -109,14 +109,14 @@ function download() {
   <div>
     <!-- Buttons -->
     <div class="flex gap-2 mb-4">
-      <label class="inline-flex items-center gap-1.5 px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium rounded-lg cursor-pointer transition-colors">
+      <label class="btn-primary inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg cursor-pointer transition-colors">
         <span i-carbon-upload class="text-base"></span>
         <span>Upload</span>
         <input type="file" accept="image/*, application/pdf" class="hidden" @change="load">
       </label>
       
       <button
-        class="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        class="btn-secondary inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         :disabled="url === '' && pdfUrl === ''"
         @click="download"
       >
@@ -126,7 +126,7 @@ function download() {
     </div>
 
     <!-- Preview Area -->
-    <div class="bg-slate-800/50 backdrop-blur border border-slate-700/50 rounded-xl p-3 min-h-[150px] sm:min-h-[200px] lg:min-h-[250px] flex items-center justify-center">
+    <div class="card-preview border rounded-xl p-3 min-h-[150px] sm:min-h-[200px] lg:min-h-[250px] flex items-center justify-center">
       <!-- Image Preview -->
       <div v-if="url" class="flex items-center justify-center">
         <img 
@@ -144,14 +144,15 @@ function download() {
       </div>
       
       <!-- Upload Zone -->
+      <!-- Upload Zone -->
       <label 
         v-else 
         class="flex flex-col items-center justify-center cursor-pointer group"
       >
-        <div class="p-3 rounded-full bg-slate-700/50 mb-2 group-hover:bg-violet-600/20 transition-colors">
-          <div i-carbon-document-add class="text-2xl text-violet-400"></div>
+        <div class="upload-icon-bg p-3 rounded-full mb-2 transition-colors">
+          <div i-carbon-document-add class="text-2xl text-accent"></div>
         </div>
-        <p class="text-xs text-gray-300 font-medium">Drop file here or click to browse</p>
+        <p class="text-xs text-muted font-medium">Drop file here or click to browse</p>
         <input type="file" accept="image/*, application/pdf" class="hidden" @change="load">
       </label>
     </div>

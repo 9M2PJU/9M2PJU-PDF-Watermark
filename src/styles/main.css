@@ -52,6 +52,48 @@
   }
 }
 
+/* ===== Semantic Utilities ===== */
+.bg-panel {
+  background-color: var(--bg-panel);
+}
+
+.bg-main {
+  background-color: var(--bg-main);
+}
+
+.text-main {
+  color: var(--text-main);
+}
+
+.text-dim {
+  color: var(--text-dim);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-brand {
+  color: var(--primary);
+}
+
+.text-brand-hover {
+  color: var(--primary-hover);
+}
+
+.text-accent {
+  color: var(--primary);
+}
+
+.border-divider {
+  border-color: var(--border-light);
+}
+
+.upload-icon-bg {
+  background-color: var(--bg-input);
+}
+
+/* ===== Base Styles ===== */
 html,
 body,
 #app {
